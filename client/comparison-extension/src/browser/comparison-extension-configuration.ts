@@ -20,16 +20,19 @@ import * as path from "path";
 @injectable()
 export class ComparisonExtensionConfiguration {
     canHandle(uri: URI): boolean {
-      return uri.path.ext === '.eam';
+      if(uri.path.ext === '.coffee'){
+        return true;
+      }
+      return false;
     }
 
     supportGraphicalComparison(): boolean {
-      return true;
+      return false;
     }
 
     getComparisonJarPath(): string {
       console.log("dir: " + __dirname);
-      return path.resolve(__dirname, '..', '..', 'server', 'model-comparison-1.0.jar');
+      return path.resolve(__dirname, '..', '..', 'server', 'coffee.jar');
     }
 
     // metamodel path & package class ?

@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.edit.tree.TreeNode;
-import EAM_Metamodel.EAM_MetamodelPackage;
+import org.eclipse.emfcloud.coffee.CoffeePackage;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -76,18 +76,6 @@ public class Model_Compare {
 	}
 
 	public static void main(String[] args) {
-		
-		args = new String[6];
-		args[0] = ARG_OPERATION;
-		args[1] = OPERATION_COMPARISON;
-		args[2] = ARG_LEFT;
-		args[3] = "file:///c%3A/Users/ldkpr/Documents/Studium/Master_Thesis/ws/eam-model-editor/client/workspace/Evaluation_0/1_comparison/diagram_new.eam";
-		args[4] = ARG_RIGHT;
-		args[5] = "file:///c%3A/Users/ldkpr/Documents/Studium/Master_Thesis/ws/eam-model-editor/client/workspace/Evaluation_0/1_comparison/diagram.eam";
-		//args[6] = ARG_ORIGIN;
-		//args[7] = "file:///c%3A/Users/ldkpr/Documents/Studium/Master_Thesis/ws/eam-model-editor/client/workspace/Presentation_Test/origin.eam";
-		//args[8] = ARG_MERGES;
-		//args[9] = "conflict;b1187042-6d4b-5f7b-a284-387e37df7a64;right";
 		
 		Map<String, String> data = new HashMap<String, String>();
 		if (args.length < 2) {
@@ -344,7 +332,7 @@ public class Model_Compare {
 	}
 	
 	private static void load(URI uri, ResourceSet resourceSet) {
-	  resourceSet.getPackageRegistry().put(EAM_MetamodelPackage.eINSTANCE.getNsURI(), EAM_MetamodelPackage.eINSTANCE);
+	  resourceSet.getPackageRegistry().put(CoffeePackage.eINSTANCE.getNsURI(), CoffeePackage.eINSTANCE);
 	  resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
 	  resourceSet.getResource(uri, true);
 	}
